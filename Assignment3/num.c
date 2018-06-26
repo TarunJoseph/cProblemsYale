@@ -15,17 +15,18 @@ Num* numCreate(char *s)
     Num* n1;
     n1 = malloc(sizeof(Num));
     assert(n1);
-
     n1->data = s;
     n1->length = strlen(s);
 
     return n1;
 }
 
+//removes the zeros from the begining of the number and displays it on stdout 
 void numPrint(Num* s)
 {
-     
-    for(int i = 0;i < (s->length);i++)
+    int i;
+    for(i = 0;i<(s->length) && s->data[i] == '0';i++);
+    for(;i < (s->length);i++)
     {
         putchar(s->data[i]);
     }
